@@ -1,0 +1,15 @@
+# Определите версию docker-compose
+version: '3'
+
+# Определите сервисы, которые будут запущены в сети Docker
+services:
+  # Определите контейнер с приложением Next.js
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile # Укажите путь к Dockerfile для сборки образа
+    environment:
+      - NODE_ENV=production # Установите переменную окружения для среды Node.js
+    ports:
+      - '3002:3000' # Пробросьте порт 3001 на хост
+    restart: always # Перезапускайте контейнер всегда, если он остановлен
